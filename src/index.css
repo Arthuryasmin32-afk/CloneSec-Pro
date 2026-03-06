@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+@theme {
+  --color-neon-green: #39FF14;
+  --color-hacker-black: #0A0A0A;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-hacker-black text-white font-sans overflow-x-hidden;
+  }
+}
+
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+.scanline {
+  width: 100%;
+  height: 100px;
+  z-index: 5;
+  background: linear-gradient(0deg, rgba(57, 255, 20, 0) 0%, rgba(57, 255, 20, 0.05) 50%, rgba(57, 255, 20, 0) 100%);
+  opacity: 0.1;
+  position: fixed;
+  bottom: 100%;
+  left: 0;
+  pointer-events: none;
+  animation: scanline 8s linear infinite;
+}
+
+.neon-glow {
+  text-shadow: 0 0 10px rgba(57, 255, 20, 0.5), 0 0 20px rgba(57, 255, 20, 0.3);
+}
+
+.neon-border {
+  box-shadow: 0 0 10px rgba(57, 255, 20, 0.2);
+}
+
+.neon-border:hover {
+  box-shadow: 0 0 20px rgba(57, 255, 20, 0.4);
+}
+
+.matrix-bg {
+  background-image: linear-gradient(rgba(10, 10, 10, 0.9), rgba(10, 10, 10, 0.9)), url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='0' y='10' font-family='monospace' font-size='8' fill='%2339FF14' fill-opacity='0.05'%3E0101%3C/text%3E%3Ctext x='20' y='30' font-family='monospace' font-size='8' fill='%2339FF14' fill-opacity='0.05'%3E1010%3C/text%3E%3C/svg%3E");
+}
+
+.hex-bg {
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='104' viewBox='0 0 60 104' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l30 17.32v34.64L30 69.28 0 51.96V17.32L30 0z' fill='none' stroke='%2339FF14' stroke-width='1' stroke-opacity='0.05'/%3E%3C/svg%3E");
+}
